@@ -1,3 +1,3 @@
-export default {
-  mongoURI: 'mongodb://localhost:27017/nestjs',
-};
+// export default () => ({
+//   mongoURI: process.env.MONGO_URI,
+// });
