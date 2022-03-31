@@ -1,19 +1,22 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import config from './config';
+import { AuthModule } from './auth/auth.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ItemsModule } from './items/items.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { ConfigModule } from '@nestjs/config';
-import { UsersController } from './users/users.controller';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    AuthModule,
+    ConfigModule.forRoot({
+      load: [config],
+      isGlobal: true,
+    }),
     MongooseModule.forRoot(process.env.MONGO_URI),
     ItemsModule,
-    AuthModule,
     UsersModule,
   ],
   controllers: [AppController],
