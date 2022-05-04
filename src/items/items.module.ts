@@ -8,14 +8,14 @@ import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [
-    UsersModule,
-    AuthModule,
     MongooseModule.forFeature([
       {
         name: Item.name,
         schema: ItemSchema,
       },
     ]),
+    UsersModule,
+    AuthModule,
   ],
   controllers: [ItemsController],
   providers: [ItemsService],

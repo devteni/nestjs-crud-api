@@ -14,10 +14,16 @@ import { Item } from './interfaces/item.interface';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Controller('items')
+@UseGuards(JwtAuthGuard)
 export class ItemsController {
   constructor(private readonly itemsService: ItemsService) {}
 
-  @UseGuards(JwtAuthGuard)
+  @Post()
+  create(@Body() createItemDto: CreateItemDto): Promise<Item | Error> {
+    console.log('validate');
+    return this.itemsService.create(createItemDto);
+  }
+
   @Get()
   findAll(): Promise<Item[]> {
     return this.itemsService.findAll();
@@ -26,11 +32,6 @@ export class ItemsController {
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Item> {
     return this.itemsService.findOne(id);
-  }
-
-  @Post()
-  create(@Body() createItemDto: CreateItemDto): Promise<Item> {
-    return this.itemsService.create(createItemDto);
   }
 
   @Delete(':id')

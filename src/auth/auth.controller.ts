@@ -14,7 +14,7 @@ export class AuthController {
   @Post('/signup')
   signup(
     @Body() createUserDto: CreateUserDto,
-  ): Promise<Record<string, unknown>> {
+  ): Promise<Record<string, unknown> | Error> {
     return this.usersService.create(createUserDto);
   }
 

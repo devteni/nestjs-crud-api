@@ -1,73 +1,191 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# API DOCUMENTATION.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## AUTH
+----
+account creation and login.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+**SIGN UP**
 
-## Description
+* **URL**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+  /auth/signup
+  ----
+  returns json reponse about a user to be created.
 
-## Installation
+* **Method:**
 
-```bash
-$ npm install
-```
+  `POST`
 
-## Running the app
+* **Data Params**
 
-```bash
-# development
-$ npm run start
+  `username=[string]`
+  `email=[string]`
+  `password=[string]`
 
-# watch mode
-$ npm run start:dev
 
-# production mode
-$ npm run start:prod
-```
+* **Success Response:**
 
-## Test
+  * **Code:** 201 <br />
+    **Content:** ```{
+          "message": "New user created",
+          "data": {
+            "username": "Teniola",
+            "email": "teniolafatunmbi@gmail.com",
+            "password": "teni123",
+            "_id": "6272d5386f59508a9b309a14",
+            "__v": 0,
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlbmlvbGEiLCJfaWQiOiI2MjcyZDUzODZmNTk1MDhhOWIzMDlhMTQiLCJpYXQiOjE2NTE2OTI4NTYsImV4cCI6MTY1MTcwMzY1Nn0.a_1RuJgm9lHofQlEo_uyRP7mlcfsZP0B_NMGUNhmX1c"
+          }
+        }
+      ```
+ 
+* **Error Response:**
 
-```bash
-# unit tests
-$ npm run test
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** ```
+              {
+              "statusCode": 400,
+              "message": "User with this email already exist",
+              "error": "Bad Request"
+              }
+            ```
 
-# e2e tests
-$ npm run test:e2e
+**LOG IN**
 
-# test coverage
-$ npm run test:cov
-```
+* **URL**
 
-## Support
+  /auth/login
+  ----
+  returns json response a login operation.
+* **Method:**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+  `POST`
 
-## Stay in touch
+* **Data Params**
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+  `username=[string]`
+  `password=[string]`
 
-## License
 
-Nest is [MIT licensed](LICENSE).
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ```{
+            "data": {
+              "message": "login successful",
+              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlbmlvbGEiLCJzdWIiOiI2MjcyZDUzODZmNTk1MDhhOWIzMDlhMTQiLCJpYXQiOjE2NTE2OTMyODcsImV4cCI6MTY1MTcwNDA4N30.Xurd8LqNd_vU1pWgFKbNeHAtEQvI8tIY5161GYYfbYA"
+            }
+          }
+      ```
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** ```
+              {
+              "statusCode": 401,
+              "message": "Unauthorized"
+            }
+            ```
+
+
+## ITEMS
+----
+endpoints for items in the database
+
+**FETCH ITEMS**
+
+* **URL**
+
+  /items
+  ----
+  Returns an array of items.
+
+* **Method:**
+
+  `GET`
+
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** ```[
+                {
+                  "_id": "6272d2ff6f59508a9b309a0e",
+                  "name": "Teniola",
+                  "qty": 1,
+                  "description": "teniolafatunmbi@gmail.com",
+                  "__v": 0
+                }
+              ]
+            ```
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** ```
+              {
+              "statusCode": 500,
+              "error": "Internal server error"
+              }
+            ```
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** ```
+              {
+              "statusCode": 401,
+              "message": "Unauthorized"
+            }
+            ```
+
+**CREATE ITEM**
+
+* **URL**
+
+  /items
+  ----
+  returns json response of a created item.
+
+* **Method:**
+
+  `POST`
+
+* **Data Params**
+
+  `name=[string]`
+  `description=[string]`
+  `qty=[string]`
+
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** ```{
+              "name": "Item 1",
+              "qty": 20,
+              "description": "Item #1",
+              "_id": "6272d8ab808f302f739f8043",
+              "__v": 0
+            }
+          ```
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** ```
+              {
+              "statusCode": 401,
+              "message": "Unauthorized"
+            }
+            ```
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** ```
+              {
+            "statusCode": 400,
+            "message": [
+              "name must be a string",
+              "description must be a string",
+              "qty must be a number conforming to the specified constraints"
+            ],
+            "error": "Bad Request"
+          }
+          ```
