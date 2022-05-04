@@ -1,4 +1,5 @@
 # API DOCUMENTATION.
+Live URL: https://simple-api-auth.herokuapp.com/
 
 ## AUTH
 ----
