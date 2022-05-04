@@ -20,7 +20,6 @@ export class ItemsController {
 
   @Post()
   create(@Body() createItemDto: CreateItemDto): Promise<Item | Error> {
-    console.log('validate');
     return this.itemsService.create(createItemDto);
   }
 
