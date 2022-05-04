@@ -26,7 +26,8 @@ account creation and login.
 * **Success Response:**
 
   * **Code:** 201 <br />
-    **Content:** ```{
+    **Content:** 
+      ```{
           "message": "New user created",
           "data": {
             "username": "Teniola",
@@ -42,13 +43,14 @@ account creation and login.
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** ```
-              {
-              "statusCode": 400,
-              "message": "User with this email already exist",
-              "error": "Bad Request"
-              }
-            ```
+    **Content:** 
+      ```
+        {
+        "statusCode": 400,
+        "message": "User with this email already exist",
+        "error": "Bad Request"
+        }
+      ```
 
 **LOG IN**
 
@@ -70,23 +72,26 @@ account creation and login.
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** ```{
-            "data": {
-              "message": "login successful",
-              "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlbmlvbGEiLCJzdWIiOiI2MjcyZDUzODZmNTk1MDhhOWIzMDlhMTQiLCJpYXQiOjE2NTE2OTMyODcsImV4cCI6MTY1MTcwNDA4N30.Xurd8LqNd_vU1pWgFKbNeHAtEQvI8tIY5161GYYfbYA"
-            }
-          }
+    **Content:** 
+    ```
+      {
+        "data": {
+          "message": "login successful",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlbmlvbGEiLCJzdWIiOiI2MjcyZDUzODZmNTk1MDhhOWIzMDlhMTQiLCJpYXQiOjE2NTE2OTMyODcsImV4cCI6MTY1MTcwNDA4N30.Xurd8LqNd_vU1pWgFKbNeHAtEQvI8tIY5161GYYfbYA"
+        }
+      }
       ```
  
 * **Error Response:**
 
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** ```
-              {
-              "statusCode": 401,
-              "message": "Unauthorized"
-            }
-            ```
+    **Content:** 
+      ```
+          {
+          "statusCode": 401,
+          "message": "Unauthorized"
+          }
+      ```
 
 
 ## ITEMS
@@ -109,33 +114,36 @@ endpoints for items in the database
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** ```[
-                {
-                  "_id": "6272d2ff6f59508a9b309a0e",
-                  "name": "Teniola",
-                  "qty": 1,
-                  "description": "teniolafatunmbi@gmail.com",
-                  "__v": 0
-                }
-              ]
-            ```
+    **Content:** 
+      ```[
+            {
+              "_id": "6272d2ff6f59508a9b309a0e",
+              "name": "Teniola",
+              "qty": 1,
+              "description": "teniolafatunmbi@gmail.com",
+              "__v": 0
+            }
+          ]
+      ```
  
 * **Error Response:**
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** ```
-              {
-              "statusCode": 500,
-              "error": "Internal server error"
-              }
-            ```
+    **Content:** 
+      ```
+        {
+        "statusCode": 500,
+        "error": "Internal server error"
+        }
+      ```
   * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** ```
-              {
-              "statusCode": 401,
-              "message": "Unauthorized"
-            }
-            ```
+    **Content:** 
+    ```
+        {
+        "statusCode": 401,
+        "message": "Unauthorized"
+        }
+    ```
 
 **CREATE ITEM**
 
@@ -159,14 +167,15 @@ endpoints for items in the database
 * **Success Response:**
 
   * **Code:** 201 <br />
-    **Content:** ```{
-              "name": "Item 1",
-              "qty": 20,
-              "description": "Item #1",
-              "_id": "6272d8ab808f302f739f8043",
-              "__v": 0
-            }
-          ```
+    **Content:** 
+    ```{
+        "name": "Item 1",
+        "qty": 20,
+        "description": "Item #1",
+        "_id": "6272d8ab808f302f739f8043",
+        "__v": 0
+      }
+    ```
  
 * **Error Response:**
 
@@ -178,8 +187,8 @@ endpoints for items in the database
             }
             ```
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** ```
-              {
+    **Content:** 
+    ```{
             "statusCode": 400,
             "message": [
               "name must be a string",
@@ -188,4 +197,4 @@ endpoints for items in the database
             ],
             "error": "Bad Request"
           }
-          ```
+    ```
