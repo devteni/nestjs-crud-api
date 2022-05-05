@@ -99,6 +99,8 @@ account creation and login.
 ----
 endpoints for items in the database
 
+> Note: Authorization token for request is in the Bearer <token> format
+
 **FETCH ITEMS**
 
 * **URL**
